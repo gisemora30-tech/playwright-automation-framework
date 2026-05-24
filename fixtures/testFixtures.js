@@ -1,14 +1,22 @@
 const base = require('@playwright/test');
 const LoginPage = require('../pages/loginPage');
+const InventoryPage = require('../pages/inventoryPage');
+const CartPage = require('../pages/cartPage');
 const testData = require('../data/users.json');
 
 /**
  * Custom fixtures allow reusable setup for all tests.
- * The loginPage fixture creates the page object once per test.
+ * Each fixture creates a page object instance for the test to use.
  */
 const test = base.test.extend({
   loginPage: async ({ page }, use) => {
     await use(new LoginPage(page));
+  },
+  inventoryPage: async ({ page }, use) => {
+    await use(new InventoryPage(page));
+  },
+  cartPage: async ({ page }, use) => {
+    await use(new CartPage(page));
   },
   testData: async ({}, use) => {
     await use(testData);
