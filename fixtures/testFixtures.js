@@ -2,6 +2,7 @@ const base = require('@playwright/test');
 const LoginPage = require('../pages/loginPage');
 const InventoryPage = require('../pages/inventoryPage');
 const CartPage = require('../pages/cartPage');
+const CheckoutPage = require('../pages/checkoutPage');
 const testData = require('../data/users.json');
 
 /**
@@ -17,6 +18,9 @@ const test = base.test.extend({
   },
   cartPage: async ({ page }, use) => {
     await use(new CartPage(page));
+  },
+  checkoutPage: async ({ page }, use) => {
+    await use(new CheckoutPage(page));
   },
   testData: async ({}, use) => {
     await use(testData);

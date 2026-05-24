@@ -5,10 +5,18 @@ A beginner-friendly Playwright automation framework built in JavaScript for QA p
 ## Project Structure
 
 - `pages/` - Page Object Model classes with reusable locators and actions.
+  - `basePage.js` - Base class with common page actions
+  - `loginPage.js` - Login page object with authentication
+  - `inventoryPage.js` - Products inventory page object
+  - `cartPage.js` - Shopping cart page object
+  - `checkoutPage.js` - Checkout flow page object
 - `tests/` - Example test files using the POM and fixtures.
+  - `login.spec.js` - Login scenario tests
+  - `cart.spec.js` - Shopping cart tests
+  - `checkout.spec.js` - Complete checkout flow test
 - `fixtures/` - Custom Playwright fixtures for shared objects and test data.
 - `utils/` - Helper utilities for reusable locators and browser helpers.
-- `data/` - Static test data for example login credentials.
+- `data/` - Static test data for credentials and checkout info.
 - `playwright.config.js` - Playwright configuration with HTML reporting, screenshots, and video recording.
 
 ## Features
@@ -39,9 +47,25 @@ npm test
 npm run test:report
 ```
 
-## Example login test
+## Test Coverage
 
-The suite uses `pages/loginPage.js` and `fixtures/testFixtures.js` to run a login scenario against Sauce Demo.
+### Login Tests (`tests/login.spec.js`)
+- Valid user login and authentication
+- Locked out user error handling
+- Invalid credentials validation
+
+### Cart Operations (`tests/cart.spec.js`)
+- Add product to cart
+- Display and count items in cart
+
+### Complete Checkout Flow (`tests/checkout.spec.js`)
+- End-to-end purchase scenario
+- User login and inventory navigation
+- Product selection and cart management
+- Checkout information entry
+- Order confirmation and success message validation
+
+This flow demonstrates how Page Object Model keeps tests clean and readable while covering a complex business scenario.
 
 ## Notes for portfolio
 
