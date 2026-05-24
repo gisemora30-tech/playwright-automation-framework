@@ -6,3 +6,26 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+.DS_Store
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+Thumbs.db
+*.log
+npm-debug.log*
+
+# Misc
+*.pid
+*.seed
+

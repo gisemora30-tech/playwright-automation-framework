@@ -5,7 +5,8 @@ const { defineConfig, devices } = require('@playwright/test');
  * It uses HTML reporting, screenshots and video capture on failure.
  */
 module.exports = defineConfig({
-  testDir: './tests',
+  testDir: './',
+  testMatch: ['**/tests/**/*.spec.js', '**/api/**/*.spec.js'],
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
